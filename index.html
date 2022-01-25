@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html {
+        perspective: 500px;
+      }
+      .clock {
+        width: 600px;
+        height: 600px;
+        margin: 50px auto;
+        /* background-color: #bfa; */
+        border-radius: 50%;
+        position: relative;
+        border: 1px solid black;
+      }
+      .clock > div {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+      }
+      .hour-wrapper {
+        /* background-color: #fff; */
+        width: 60%;
+        height: 60%;
+        animation: run 43200s linear infinite;
+      }
+      .hour {
+        width: 4px;
+        height: 50%;
+        background-color: black;
+        margin: 0 auto;
+      }
+      .min-wrapper {
+        width: 70%;
+        height: 70%;
+        animation: run 3600s linear infinite;
+      }
+      .min {
+        height: 50%;
+        width: 2px;
+        margin: 0 auto;
+        background-color: #333;
+      }
+      .sec-wrapper {
+        width: 80%;
+        height: 80%;
+        animation: run 60s linear infinite;
+      }
+      .sec {
+        height: 50%;
+        width: 1px;
+        margin: 0 auto;
+        background-color: #666;
+      }
+      @keyframes run {
+        from {
+          transform: rotateZ(0);
+        }
+        to {
+          transform: rotateZ(1turn);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="clock">
+      <div class="hour-wrapper">
+        <div class="hour"></div>
+      </div>
+      <div class="min-wrapper">
+        <div class="min"></div>
+      </div>
+      <div class="sec-wrapper">
+          <div class="sec"></div>
+      </div>
+    </div>
+  </body>
+</html>
