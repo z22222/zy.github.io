@@ -1,6 +1,6 @@
 ## Welcome to GitHub Pages
 
-You can not use the [editor on GitHub](https://github.com/z22222/zy.github.io/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+You can not 1use the [editor on GitHub](https://github.com/z22222/zy.github.io/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
 Whenever you can commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
