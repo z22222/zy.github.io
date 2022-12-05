@@ -10,8 +10,15 @@
                     Welcome to Loverbirds
                 </div>
                 <div class="form">
-                    <input placeholder="Username or email" class="userName" />
-                    <input placeholder="Password" type="password" class="passWord" />
+                    <input placeholder="Username or email" v-model="formLabelAlign.userName" class="userName" />
+                    <input placeholder="Password" type="password" class="passWord" v-model="formLabelAlign.passWord" />
+                </div>
+                <div class="forget_pas">forget password?</div>
+                <div class="singin">Sign in</div>
+                <div class="or">or</div>
+                <div class="signgoogle">
+                    <div class="icon"></div>
+                    SIGN IN WITH GOOGLE
                 </div>
             </div>
         </div>
@@ -53,9 +60,10 @@ const formLabelAlign = reactive({
             display: flex;
             flex-direction: column;
             align-items: center;
-            width: 793px;
+            max-width: 793px;
             height: 800px;
             background-color: #fff;
+            padding: 0 90px;
 
             .tit {
                 margin-top: 80px;
@@ -71,22 +79,78 @@ const formLabelAlign = reactive({
 
             .form {
                 margin-top: 20px;
+
                 .userName,
                 .passWord {
                     display: block;
-                    margin: 25px 0 20px 0;
-                    width: 500px;
+                    margin: 25px 0px 20px 0px;
+                    width: 400px;
                     height: 72px;
                     border: none;
                     border-bottom: 1px solid #D9D9D9;
                     outline: none;
                     font-size: 22px;
                     padding-left: 22px;
-                    color: #0d5e77;
+                    color: #555555;
+
                     &::placeholder {
                         font-size: 18px;
-                        color: #a8c9d3;
+                        color: #999999;
                     }
+                }
+            }
+
+            .forget_pas {
+                width: 100%;
+                margin-top: 20px;
+                font-size: 14px;
+                color: #808080;
+                display: flex;
+                justify-content: flex-end;
+                font-family: 'Times New Roman', Times, serif;
+                cursor: pointer;
+            }
+
+            .singin {
+                margin-top: 42px;
+                width: 149px;
+                line-height: 47px;
+                color: #fff;
+                background-color: black;
+                border-radius: 24px;
+                text-align: center;
+                cursor: pointer;
+            }
+
+            .or {
+                margin: 35px 0;
+                color: #849296;
+                line-height: 21px;
+
+                &::before,
+                &::after {
+                    content: '';
+                    display: inline-block;
+                    width: 100px;
+                    height: 1px;
+                    margin: 0 10px 4px 10px;
+                    background-color: #dcdcdc;
+                }
+            }
+            .signgoogle{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                line-height: 30px;
+                font-size: 13px;
+                color: #000000;
+                cursor: pointer;
+                .icon{
+                    margin-right: 12px;
+                    width: 24px;
+                    height: 24px;
+                    background: url(../../assets/picture/Login/google.png);
+                    background-size: 100% 100%;
                 }
             }
         }
