@@ -58,7 +58,7 @@ const formLabelAlign = reactive({
             background-color: #fff;
 
             .tit {
-                margin-top: 40px;
+                margin-top: 80px;
                 font-family: 'Times New Roman', Times, serif;
                 font-size: 40px;
             }
@@ -66,25 +66,26 @@ const formLabelAlign = reactive({
             .txt {
                 font-size: 22px;
                 color: #6b7c81;
-                margin-top: 30px;
+                margin-top: 40px;
             }
 
             .form {
-
+                margin-top: 20px;
                 .userName,
                 .passWord {
                     display: block;
-                    margin: 20px 0;
+                    margin: 25px 0 20px 0;
                     width: 500px;
                     height: 72px;
                     border: none;
                     border-bottom: 1px solid #D9D9D9;
                     outline: none;
-
+                    font-size: 22px;
+                    padding-left: 22px;
+                    color: #0d5e77;
                     &::placeholder {
                         font-size: 18px;
-                        color: #6b7c81;
-                        padding: 0 0 0 12px;
+                        color: #a8c9d3;
                     }
                 }
             }

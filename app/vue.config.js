@@ -1,14 +1,6 @@
-const AutoImport = require('unplugin-auto-import/webpack')
-const Components = require('unplugin-vue-components/webpack')
-const { ElementPlusResolver } = require('unplugin-vue-components/resolvers')
 module.exports = {
-    // ...
-    plugins: [
-      AutoImport({
-        resolvers: [ElementPlusResolver()],
-      }),
-      Components({
-        resolvers: [ElementPlusResolver()],
-      }),
-    ],
+  publicPath: '../',
+  outputDir: "dist", // 输出文件目录
+  lintOnSave: false, // eslint 是否在保存时检查
+  assetsDir: 'static', // 配置js、css静态资源二级目录的位置
 }
