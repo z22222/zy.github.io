@@ -1,5 +1,9 @@
-import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
-
+import {
+  createRouter,
+  createWebHashHistory,
+  RouteRecordRaw,
+  useRouter,
+} from "vue-router";
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
@@ -23,13 +27,19 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import(/* webpackChunkName: "home" */ "../views/Home.vue"),
   },
   {
-    path: "/about",
+    path: "/about/:userInfo",
     name: "About",
     meta: {
       title: "详情",
     },
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/About.vue"),
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    name: "NotFound",
+    component: () =>
+      import(/* webpackChunkName: NotFound*/ "../views/404/index.vue"),
   },
 ];
 
@@ -38,6 +48,10 @@ const router = createRouter({
   routes,
 });
 router.beforeEach((to, from, next) => {
+  if (!localStorage.userInfo && to.name !== "Login") {
+    next({ name: "Login" });
+    return;
+  }
   // 根据路由元信息设置文档标题
   window.document.title = to.meta.title as string;
   next();

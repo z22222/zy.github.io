@@ -14,7 +14,7 @@
                     <input placeholder="Password" type="password" class="passWord" v-model="formLabelAlign.passWord" />
                 </div>
                 <div class="forget_pas">forget password?</div>
-                <div class="singin">Sign in</div>
+                <div class="singin" @click="signIn">Sign in</div>
                 <div class="or">or</div>
                 <div class="signgoogle">
                     <div class="icon"></div>
@@ -27,11 +27,22 @@
 
 <script setup lang="ts">
 import { ref, reactive } from 'vue'
+import { useRouter } from 'vue-router'
+localStorage.clear()
 const radio1 = ref('1')
+const router = useRouter()
 const formLabelAlign = reactive({
     userName: '',
     passWord: '',
 })
+const signIn = () => {
+    localStorage.setItem('userInfo', JSON.stringify({
+        userName: formLabelAlign.userName,
+        passWord: formLabelAlign.passWord
+    }))
+    router.push('/home')
+}
+
 </script>
 
 <style scoped lang="less">
@@ -60,10 +71,9 @@ const formLabelAlign = reactive({
             display: flex;
             flex-direction: column;
             align-items: center;
-            max-width: 793px;
             height: 800px;
             background-color: #fff;
-            padding: 0 90px;
+            padding: 0 71px;
 
             .tit {
                 margin-top: 80px;
@@ -137,7 +147,8 @@ const formLabelAlign = reactive({
                     background-color: #dcdcdc;
                 }
             }
-            .signgoogle{
+
+            .signgoogle {
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -145,7 +156,8 @@ const formLabelAlign = reactive({
                 font-size: 13px;
                 color: #000000;
                 cursor: pointer;
-                .icon{
+
+                .icon {
                     margin-right: 12px;
                     width: 24px;
                     height: 24px;

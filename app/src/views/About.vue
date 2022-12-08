@@ -1,5 +1,14 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <div>{{ name }}</div>
   </div>
 </template>
+
+<script lang="ts" setup>
+import { useRoute } from 'vue-router'
+import { computed } from 'vue';
+const route = useRoute()
+const name = computed(() => {
+  return route.path + '-' + route.params.userInfo
+})
+</script>

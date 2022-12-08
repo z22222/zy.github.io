@@ -1,10 +1,21 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    x:{{x}}
+    y:{{y}}
+    <!-- 在线编辑器 -->
   </div>
 </template>
 
 <script lang="ts" setup>
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
+import { useMouse } from '@/hooks/useMouse.js';
+const { x, y } = useMouse()
 </script>
+<style lang="less" scoped>
+.box {
+  display: block;
+  margin-top: 20px;
+  width: 80%;
+  height: 40vh;
+  font-size: 18px;
+}
+</style>
