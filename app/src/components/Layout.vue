@@ -1,5 +1,5 @@
 <template>
-    <el-menu default-active="/home" class="el-menu-vertical-demo" :collapse="isCollapse" @open="handleOpen"
+    <el-menu :default-active="route.meta.navmark as string" class="el-menu-vertical-demo" :collapse="isCollapse" @open="handleOpen"
         @close="handleClose" @select="handleSelect">
         <el-menu-item index="/home">
             <el-icon>
@@ -33,6 +33,7 @@ import {
 const isCollapse = ref(false)
 const route = useRoute()
 const router = useRouter()
+
 
 const handleOpen = (key: string, keyPath: string[]) => {
     // console.log(key, keyPath)

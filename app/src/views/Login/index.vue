@@ -28,6 +28,7 @@
 <script setup lang="ts">
 import { ref, reactive } from 'vue'
 import { useRouter } from 'vue-router'
+import { Login } from '@/api/Login.js'
 localStorage.clear()
 const radio1 = ref('1')
 const router = useRouter()
@@ -35,12 +36,23 @@ const formLabelAlign = reactive({
     userName: '',
     passWord: '',
 })
-const signIn = () => {
-    localStorage.setItem('userInfo', JSON.stringify({
-        userName: formLabelAlign.userName,
-        passWord: formLabelAlign.passWord
-    }))
-    router.push('/home')
+const signIn = async () => {
+    let userName = formLabelAlign.userName
+    let passWord = formLabelAlign.passWord
+    let { data } = await Login({
+        userName,
+        passWord
+    })
+    if (data.code == 200) {
+        localStorage.setItem('userInfo', JSON.stringify({
+            userName,
+            passWord
+        }))
+        router.push('/home')
+    } else {
+        alert('登录失败')
+    }
+
 }
 
 </script>

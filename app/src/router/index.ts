@@ -14,6 +14,7 @@ const routes: Array<RouteRecordRaw> = [
     name: "Login",
     meta: {
       title: "登录",
+      navmark: "/login",
     },
     component: () =>
       import(/* webpackChunkName: "login" */ "../views/Login/index.vue"),
@@ -23,6 +24,7 @@ const routes: Array<RouteRecordRaw> = [
     name: "Home",
     meta: {
       title: "主页",
+      navmark: "/home",
     },
     component: () => import(/* webpackChunkName: "home" */ "../views/Home.vue"),
   },
@@ -31,6 +33,7 @@ const routes: Array<RouteRecordRaw> = [
     name: "About",
     meta: {
       title: "详情",
+      navmark: "/about",
     },
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/About.vue"),

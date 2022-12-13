@@ -9,8 +9,13 @@
 
 <script lang="ts" setup>
 import Layout from './components/Layout.vue';
+import { watchEffect } from 'vue';
 import { useRoute } from 'vue-router';
 const route = useRoute()
+watchEffect(() => {
+  // let path = route.fullPath
+  // console.log(route.meta.nav);
+})
 </script>
 
 <style lang="less" scoped>
