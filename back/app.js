@@ -6,7 +6,8 @@ const config = require('./utils/config')
 const bodyParser = require('koa-bodyparser') //解析post接口的body参数
 const DB = require('./utils/query.js')
 const sqls = require('./sqls/index.js')
-const dayjs = require('dayjs')
+let login = require('./views/Login/index.js')
+let user = require('./views/User/index.js')
 app.use(bodyParser())
 //示例
 router.get('/', async ctx => {
@@ -59,34 +60,10 @@ router.get('/', async ctx => {
             res
         }
     }
-}).post('/addUser', async ctx => {
-    let { id, name, password } = ctx.request.body
-    let date = dayjs().format('YYYY-MM-DD')
-    let res = await DB.query(sqls.addUser(id, name, password, date))
-    ctx.response.body = {
-        data: {
-            code: 200,
-            res
-        }
-    }
-}).get('/getUserList', async ctx => {
-    let list = await DB.query(sqls.getUserList)
-    ctx.response.body = {
-        code: 200,
-        data: {
-            list
-        }
-    }
-}).get('/login', async ctx => {
-    let res = await DB.query(sqls.login(ctx.query.userName, ctx.query.passWord))
-    ctx.response.body = {
-        code: res.length >= 1 ? 200 : 401,
-        data: {
-            res
-        }
-    }
-
 })
+
+router.use('/login', login.routes())// 加载login子路由
+router.use('/user', user.routes())// 加载login子路由
 
 app.use(router.routes(), router.allowedMethods())//app.use([地址],中间件|路由|函数体),安装中间件、路由、接受一个函数
 
